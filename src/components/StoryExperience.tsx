@@ -36,6 +36,9 @@ const T = (s: number) => ({
 /* chocolate / caramel colours used inside SVGs */
 const CHOC = "#c07a45";
 
+/* how many photos to show on the Memories (flip cards) page */
+const MEMORY_COUNT = 6;
+
 /* -------------------------------------------------------
    CHAPTER 2 GAME WORDS  (edit these as you like)
 ------------------------------------------------------- */
@@ -528,11 +531,14 @@ function Ch2({ next }: { next: () => void }) {
 }
 
 /* -------------------------------------------------------
-   CHAPTER 3 - MEMORIES WITH FLIP CARDS (grid, no slider)
+   CHAPTER 3 - MEMORIES WITH FLIP CARDS (first 6 photos only)
 ------------------------------------------------------- */
 
 function Ch3({ next }: { next: () => void }) {
   const [flipped, setFlipped] = useState<number[]>([]);
+
+  /* only the first 6 photos are shown on this page */
+  const memories = site.photos.slice(0, MEMORY_COUNT);
 
   const toggle = (i: number) =>
     setFlipped((f) => (f.includes(i) ? f.filter((x) => x !== i) : [...f, i]));
@@ -559,7 +565,7 @@ function Ch3({ next }: { next: () => void }) {
       </div>
 
       <div className="memory-grid">
-        {site.photos.map((memory, i) => (
+        {memories.map((memory, i) => (
           <div
             key={i}
             className={`memory-card rv ${flipped.includes(i) ? "flipped" : ""}`}
@@ -1057,7 +1063,6 @@ function Ch8({ next }: { next: () => void }) {
           className="btn story-reveal-button"
           onClick={() => setRevealed(true)}
         >
-          <Sparks cls="hidden" n={0} />
           <Sparkles size={16} />
           {s.button}
           <ArrowRight size={16} />
@@ -1094,11 +1099,11 @@ function Ch8({ next }: { next: () => void }) {
 }
 
 /* -------------------------------------------------------
-   CHAPTER 9 - FINAL LETTER (his photo + photo background)
+   CHAPTER 9 - FINAL LETTER (photo background, NO oval photo)
 ------------------------------------------------------- */
 
 function Ch9({ replay }: { replay: () => void }) {
-  const base = 8;
+  const base = 6;
   const step = 2.6;
   const end = base + site.letter.length * step;
 
@@ -1117,15 +1122,11 @@ function Ch9({ replay }: { replay: () => void }) {
     >
       <Lines lines={site.finalIntro} start={0.5} step={2.2} />
 
-      <div className="final-photo rv" style={T(3.8)}>
-        <img src={site.finalPhoto} alt={site.name} />
-      </div>
-
       <div
         className="letter rv dimout"
         style={
           {
-            ...T(5),
+            ...T(3.5),
             "--letter-bg": `url("${site.finalPhoto}")`,
           } as React.CSSProperties
         }
