@@ -1,0 +1,553 @@
+
+/* =========================================
+   ADMIN DASHBOARD - BATMAN THEME
+   Dark Purple + Gold
+========================================= */
+
+.ad-root {
+  min-height: 100vh;
+  padding: 1.2rem 1rem 3rem;
+  color: var(--soft);
+  background:
+    radial-gradient(ellipse at 50% 0%, #1b1440, transparent 60%),
+    linear-gradient(var(--ink), var(--mid) 140%);
+}
+
+.ad-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =========================================
+   TEXT STYLES
+========================================= */
+
+.ad-gold {
+  color: var(--gold);
+}
+
+.ad-muted {
+  color: #f5f2ff99;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.ad-sub {
+  margin: 0.15rem 0 0.9rem;
+}
+
+/* =========================================
+   DASHBOARD HEADER
+========================================= */
+
+.ad-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.ad-head h1,
+.ad-login h1 {
+  margin: 0 0 0.3rem;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-shadow: 0 0 24px #c07a4566;
+}
+
+/* =========================================
+   STATUS INDICATORS
+========================================= */
+
+.ad-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: #1db954;
+  box-shadow: 0 0 8px #1db954;
+  animation: adPulse 1.6s ease-in-out infinite;
+}
+
+.ad-dot.bad {
+  background: #e5484d;
+  box-shadow: 0 0 8px #e5484d;
+}
+
+@keyframes adPulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.ad-card {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid #c07a4544;
+  border-radius: 16px;
+  background:
+    linear-gradient(160deg, #8b5cf61a, transparent 60%),
+    #0d0b18cc;
+  box-shadow: 0 0 30px #c07a4514;
+}
+
+.ad-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+}
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.ad-stats {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  );
+  gap: 0.8rem;
+}
+
+.ad-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ad-stat-icon {
+  color: var(--gold);
+}
+
+.ad-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f5f2ff99;
+}
+
+.ad-stat-value {
+  font-size: 1.9rem;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.ad-stat small {
+  color: #f5f2ff66;
+  font-size: 0.7rem;
+}
+
+/* =========================================
+   TWO COLUMN GRID
+========================================= */
+
+.ad-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* =========================================
+   BAR CHARTS
+========================================= */
+
+.ad-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ad-bar-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 1.2fr) 2fr 34px;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.ad-bar-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #f5f2ffcc;
+}
+
+.ad-bar-track {
+  height: 10px;
+  border-radius: 99px;
+  background: #ffffff14;
+  overflow: hidden;
+}
+
+.ad-bar-track i {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(
+    90deg,
+    var(--gold-d),
+    var(--gold-l)
+  );
+  transition: width 0.6s ease;
+}
+
+.ad-bar-track.purple i {
+  background: linear-gradient(
+    90deg,
+    #4c2fb0,
+    var(--purple)
+  );
+}
+
+.ad-bar-row b {
+  text-align: right;
+}
+
+/* =========================================
+   COLUMN / ACTIVITY CHART
+========================================= */
+
+.ad-cols {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 0.3rem;
+  align-items: end;
+  height: 170px;
+}
+
+.ad-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  height: 100%;
+  font-size: 0.7rem;
+}
+
+.ad-col-bar {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: #ffffff0d;
+}
+
+.ad-col-bar i {
+  display: block;
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(
+    0deg,
+    var(--gold-d),
+    var(--gold-l)
+  );
+  transition: height 0.6s ease;
+  min-height: 2px;
+}
+
+.ad-col small {
+  color: #f5f2ff80;
+  font-size: 0.62rem;
+}
+
+/* =========================================
+   ACTIVITY / DATA LIST
+========================================= */
+
+.ad-list {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.ad-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #ffffff12;
+  font-size: 0.85rem;
+}
+
+.ad-list small {
+  color: #f5f2ff80;
+  font-size: 0.72rem;
+}
+
+/* =========================================
+   STATUS CHIPS
+========================================= */
+
+.ad-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid #c07a4577;
+  border-radius: 99px;
+  background: #c07a451f;
+  color: var(--gold-l);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.ad-chip .ad-dot {
+  margin-right: 0.35rem;
+}
+
+/* =========================================
+   FEEDBACK SECTION
+========================================= */
+
+.ad-feedback {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  );
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.ad-fb {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ffffff1a;
+  border-radius: 12px;
+  background: #ffffff08;
+}
+
+.ad-fb-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ad-fb p {
+  margin: 0.5rem 0 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ad-fb small {
+  color: #f5f2ff80;
+  font-size: 0.7rem;
+}
+
+/* =========================================
+   STAR RATINGS
+========================================= */
+
+.ad-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--gold);
+}
+
+/* =========================================
+   ADMIN NOTES
+========================================= */
+
+.ad-note ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1.1rem;
+  color: #f5f2ffb3;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   ADMIN LOGIN
+========================================= */
+
+.ad-login-wrap {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+}
+
+.ad-login {
+  width: min(100%, 380px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.ad-login p {
+  margin: 0;
+  color: #f5f2ffb3;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   LOGIN INPUT
+========================================= */
+
+.ad-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #c07a4577;
+  border-radius: 12px;
+  background: #050509;
+  color: var(--soft);
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ad-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px #c07a4533;
+}
+
+.ad-error {
+  color: #ff8a8f !important;
+}
+
+/* =========================================
+   BUTTON STATES
+========================================= */
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.ad-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ad-list::-webkit-scrollbar-track {
+  background: #ffffff08;
+  border-radius: 10px;
+}
+
+.ad-list::-webkit-scrollbar-thumb {
+  background: #c07a4566;
+  border-radius: 10px;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 820px) {
+  .ad-grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-root {
+    padding: 1rem 0.8rem 2rem;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+  .ad-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ad-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-card {
+    padding: 0.9rem;
+  }
+
+  .ad-bar-row {
+    grid-template-columns: minmax(75px, 1fr) 1.5fr 28px;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+  }
+
+  .ad-cols {
+    gap: 0.15rem;
+  }
+
+  .ad-col small {
+    font-size: 0.55rem;
+  }
+
+  .ad-feedback {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-login-wrap {
+    min-height: 80vh;
+  }
+
+  .ad-list li {
+    gap: 0.4rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .ad-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-root {
+    padding-inline: 0.6rem;
+  }
+
+  .ad-head h1,
+  .ad-login h1 {
+    font-size: 1.35rem;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-dot {
+    animation: none;
+  }
+
+  .ad-bar-track i,
+  .ad-col-bar i,
+  .ad-input {
+    transition: none;
+  }
+}
